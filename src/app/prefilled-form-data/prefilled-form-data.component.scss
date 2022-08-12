@@ -1,0 +1,24 @@
+.form-group .ng-valid
+{
+    border-left: 4px solid green;
+}
+.form-group .ng-invalid
+{
+    border-left: 4px solid red ;
+}
+.error
+{
+    color: red;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.right
+{
+    float: right;
+}
+textarea{
+    resize: none;
+}
+form{
+    min-width: 221px;
+}

@@ -1,0 +1,36 @@
+<div class="col-sm-4">
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" >
+    <h5>Register form-1</h5>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" email aria-describedby="emailHelp" placeholder="Enter email" name="email"
+        ngModel required #email="ngModel">
+      <span *ngIf="email.invalid && email.touched || email.invalid && loginForm.submitted
+       " class="error">Email can not Empty or invalid</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" placeholder="Enter Password" name="password" ngModel minlength="6" maxlength="8" 
+        #password="ngModel" required>
+      <div *ngIf="password.invalid && password.touched 
+      || password.invalid && loginForm.submitted" class="error">Password can not Empty</div>
+      <span *ngIf="password.invalid && password.touched && password.errors?.['minlength'] || password.errors?.['maxlength']
+      || password.invalid && loginForm.submitted && password.errors?.['minlength'] || password.errors?.['maxlength']" class="error">password must be 6 to 8 character</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Mobile</label>
+      <input type="text" class="form-control" placeholder="Enter Mobile" name="mobile" ngModel #mobile="ngModel"
+        required minlength="8" maxlength="12" pattern="[0-9]*">
+      <span class="error" *ngIf="mobile.invalid && mobile.touched  || mobile.invalid && loginForm.submitted ">Mobile no
+        can not Empty or invalid</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Mobile</label>
+      <textarea name="address"  class="form-control" placeholder="Enter address" id=""  rows="3" ngModel #address="ngModel" required maxlength="100" pattern="[a-zA-Z0-9 ,-:\n]*"></textarea>
+      <span *ngIf="address.invalid && address.touched || address.invalid && loginForm.submitted" class="error" >Address can not Empty or invalid</span>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary right">Submit-disabled</button>
+  </form>
+</div>
